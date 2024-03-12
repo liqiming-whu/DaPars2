@@ -112,6 +112,7 @@ def get_chromList(output_utr_file, chromlist_file):
         for line in f:
             fields = line.strip('\n').split('\t')
             chrom_list.add(fields[0])
+    chrom_list = sorted(list(chrom_list))
     with open(chromlist_file, 'w') as f:
         for chrom in chrom_list:
             f.write(chrom + '\n')
