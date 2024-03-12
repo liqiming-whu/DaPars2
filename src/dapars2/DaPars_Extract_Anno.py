@@ -117,7 +117,7 @@ def get_chromList(output_utr_file, chromlist_file):
             f.write(chrom + '\n')
 
 
-def Extract_Anno_main(argv):
+def Extract_Anno_main():
     # gene_bed_file = ''
     # gene_symbol_annotation_file = ''
     # output_extract_file = 'temp_anno_extracted.bed'
@@ -156,7 +156,7 @@ def Extract_Anno_main(argv):
     parser.add_argument('-s', '--symbol', dest='gene_symbol_annotation_file', metavar='gene_symbol_annotation_file', type=str, required=True, help='Input gene symbol annotation file, which is downloaded from UCSC Table browser')
     parser.add_argument('-o', '--ofile', dest='output_final_extract_file', metavar='output_final_extract_file', type=str, required=True, help='Output file')
     parser.add_argument('-c', '--chromlist', dest="chromlist", metavar="chromlist_file", type=str, required=True, help="chromlist file")
-    args = parser.parse_args(argv)
+    args = parser.parse_args()
     
     gene_bed_file = args.gene_bed_file
     gene_symbol_annotation_file = args.gene_symbol_annotation_file
@@ -177,5 +177,5 @@ def Extract_Anno_main(argv):
     print("Finished")
 
 if __name__ == '__main__':
-    Extract_Anno_main(sys.argv[1:])
+    Extract_Anno_main()
     
