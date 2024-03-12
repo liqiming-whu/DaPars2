@@ -1,27 +1,27 @@
 .. These are examples of badges you might want to add to your README:
    please update the URLs accordingly
 
-    .. image:: https://api.cirrus-ci.com/github/<USER>/DaPars2.svg?branch=main
+    .. image:: https://api.cirrus-ci.com/github/<USER>/DaPars.svg?branch=main
         :alt: Built Status
-        :target: https://cirrus-ci.com/github/<USER>/DaPars2
-    .. image:: https://readthedocs.org/projects/DaPars2/badge/?version=latest
+        :target: https://cirrus-ci.com/github/<USER>/DaPars
+    .. image:: https://readthedocs.org/projects/DaPars/badge/?version=latest
         :alt: ReadTheDocs
-        :target: https://DaPars2.readthedocs.io/en/stable/
-    .. image:: https://img.shields.io/coveralls/github/<USER>/DaPars2/main.svg
+        :target: https://DaPars.readthedocs.io/en/stable/
+    .. image:: https://img.shields.io/coveralls/github/<USER>/DaPars/main.svg
         :alt: Coveralls
-        :target: https://coveralls.io/r/<USER>/DaPars2
-    .. image:: https://img.shields.io/pypi/v/DaPars2.svg
+        :target: https://coveralls.io/r/<USER>/DaPars
+    .. image:: https://img.shields.io/pypi/v/DaPars.svg
         :alt: PyPI-Server
-        :target: https://pypi.org/project/DaPars2/
-    .. image:: https://img.shields.io/conda/vn/conda-forge/DaPars2.svg
+        :target: https://pypi.org/project/DaPars/
+    .. image:: https://img.shields.io/conda/vn/conda-forge/DaPars.svg
         :alt: Conda-Forge
-        :target: https://anaconda.org/conda-forge/DaPars2
-    .. image:: https://pepy.tech/badge/DaPars2/month
+        :target: https://anaconda.org/conda-forge/DaPars
+    .. image:: https://pepy.tech/badge/DaPars/month
         :alt: Monthly Downloads
-        :target: https://pepy.tech/project/DaPars2
+        :target: https://pepy.tech/project/DaPars
     .. image:: https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter
         :alt: Twitter
-        :target: https://twitter.com/DaPars2
+        :target: https://twitter.com/DaPars
 
 .. image:: https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold
     :alt: Project generated with PyScaffold
@@ -29,15 +29,14 @@
 
 |
 
-=======
-DaPars2
-=======
+======
+DaPars
+======
 
 
-    Add a short description here!
+    Modified from Dapars(v2.1)
 
 
-A longer description of your project goes here...
 
 
 .. _pyscaffold-notes:
