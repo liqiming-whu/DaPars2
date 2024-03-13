@@ -12,7 +12,10 @@ def merge_apa_res(dir_prefix, file_prefix, chr_list, sample_list, output_file):
     chrfo = open(chr_list)
     chrs = [i.strip() for i in chrfo.readlines()]
     chrfo.close()
-    col_names = ["Gene","fit_value","Predicted_Proximal_APA","Loci",*sample_list]
+    data_cols = []
+    for i in sample_list:
+        data_cols.extend([f"Sample_{i}_long_exp", f"Sample_{i}_short_exp", f"{i}_PDUI"])
+    col_names = ["Gene","fit_value","Predicted_Proximal_APA","Loci",*data_cols]
     dap_res_list = []
     for chr in chrs:
         dap_res = load_dapars2_res(chr, col_names, dir_prefix, file_prefix)
@@ -28,7 +31,7 @@ def merge_apa_res_main():
     parser.add_argument("--dir-prefix", dest="dir_prefix", required=True, type=str, default="Dapars2_out", help="directory prefix")
     parser.add_argument("--file-prefix", dest="file_prefix", required=True, type=str, default="Dapars2", help="file prefix")
     parser.add_argument("--chr-list", dest="chr_list", required=True, type=str, help="chromosome list file")
-    parser.add_argument("--sample-list", dest="sample_list", nargs="+", type=str, help="sample list")
+    parser.add_argument("--sample-list", dest="sample_list", nargs="+", required=True, type=str, help="sample list")
     parser.add_argument("--output-file", dest="output_file", required=True, type=str, help="output file")
     args = parser.parse_args()
     merge_apa_res_main(*vars(args).values())

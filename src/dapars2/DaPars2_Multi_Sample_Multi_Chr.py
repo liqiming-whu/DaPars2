@@ -158,10 +158,10 @@ def De_Novo_3UTR_Identification_Loading_Target_Wig_for_TCGA_Multiple_Samples_Mul
         #Write the first line
         first_line = ['Gene','fit_value','Predicted_Proximal_APA','Loci']
         for i in range(num_samples):
-            #curr_long_exp = 'Sample_%s_long_exp' % str(i+1)
-            #curr_short_exp = 'Sample_%s_short_exp' % str(i+1)
+            curr_long_exp = 'Sample_%s_long_exp' % str(i+1)
+            curr_short_exp = 'Sample_%s_short_exp' % str(i+1)
             curr_ratio = '%s_PDUI' % str(Sample_name[i])
-            #first_line.extend([curr_long_exp,curr_short_exp,curr_ratio])
+            first_line.extend([curr_long_exp,curr_short_exp,curr_ratio])
             first_line.append(curr_ratio)
 
         Output_result.writelines('\t'.join(first_line) + '\n')
@@ -227,8 +227,8 @@ def Each_Thread_3UTR_estimation_list_version_sample_ids(curr_thread_UTR_events_i
                         # long 3'UTR percentage
                         curr_sample_ratio = float(UTR_abundances[0][i])/(float(UTR_abundances[0][i]) + float(UTR_abundances[1][i]))
                         All_long_inclusion_ratios.append(curr_sample_ratio)
-                        #line_write.append("%.2f" % UTR_abundances[0][i])#long 3' UTR abundance
-                        #line_write.append("%.2f" % UTR_abundances[1][i])#short 3' UTR abundance
+                        line_write.append("%.2f" % UTR_abundances[0][i])#long 3' UTR abundance
+                        line_write.append("%.2f" % UTR_abundances[1][i])#short 3' UTR abundance
                         line_write.append("%.2f" % curr_sample_ratio)
                     else:
                         line_write.extend(['NA']*1)
@@ -464,7 +464,7 @@ def DaPars2_Multi_Sample_Multi_Chr():
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
     parser.add_argument('-c', '--chroms', dest="chroms_file", required=True, type=str, help='chroms file')
-    parser.add_argument('-s', '--samples', dest="wig_files", nargs='+', type=str, help='wig files')
+    parser.add_argument('-s', '--samples', dest="wig_files", nargs='+', required=True, type=str, help='wig files')
     parser.add_argument('-o', '--outdir', dest="output_folder_prefix", required=True, type=str, default="Dapars2_out", help='output folder prefix')
     parser.add_argument('-a', '--anno', dest="Annotated_3UTR_file", required=True, type=str, help='Annotated 3UTR file')
     parser.add_argument('-r', '--result', dest="Output_result_prefix", required=True, type=str, default="Dapars2", help='Output result prefix')
