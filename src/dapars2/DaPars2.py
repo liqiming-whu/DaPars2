@@ -42,11 +42,11 @@ def DaPars2_main():
         Annotation_prepar_3UTR_extraction(gene_bed_file, gene_symbol_annotation_file,output_extract_file)
         Subtract_different_strand_overlap(output_extract_file,output_final_extract_file)
         get_chromList(output_final_extract_file, chromlist_file)
+    wigfiles = args.wigfiles
+    flagstat = args.flagstat
+    read_depth = os.path.join(outdir, "readDepth.txt")
     if not os.path.exists(read_depth):
         print("Extracting read depth ...")
-        wigfiles = args.wigfiles
-        flagstat = args.flagstat
-        read_depth = os.path.join(outdir, "readDepth.txt")
         assert len(wigfiles) == len(flagstat), "wigfiles and flagstat files should be the same length"
         extract_read_depth(wigfiles, flagstat, read_depth)
     print("Calculate PDUI ...")
