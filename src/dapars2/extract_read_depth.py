@@ -26,7 +26,7 @@ def extract_read_depth_main():
                                      formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('--wigfiles',dest="wigfiles", nargs="+", required=True, help="wig files")
     parser.add_argument('--flagstat-files',dest="flagstat", nargs="+", required=True, help="flagstat files")
-    parser.add_argument('--output',help="the final output file with read depth of each sample")
+    parser.add_argument('--output',dest="output", required=True, help="the final output file with read depth of each sample")
     args = parser.parse_args()
 
     samples = args.wigfiles
