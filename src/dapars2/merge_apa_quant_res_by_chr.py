@@ -14,7 +14,7 @@ def merge_apa_res(dir_prefix, file_prefix, chr_list, sample_list, output_file):
     chrfo.close()
     data_cols = []
     for i in sample_list:
-        data_cols.extend([f"Sample_{i}_long_exp", f"Sample_{i}_short_exp", f"{i}_PDUI"])
+        data_cols.extend([f"{i}_long_exp", f"{i}_short_exp", f"{i}_PDUI"])
     col_names = ["Gene","fit_value","Predicted_Proximal_APA","Loci",*data_cols]
     dap_res_list = []
     for chr in chrs:
