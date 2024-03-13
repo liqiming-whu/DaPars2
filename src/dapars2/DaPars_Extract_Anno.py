@@ -3,8 +3,6 @@
 Extract 3' UTR from gene bed file
 """
 import os
-import sys
-import os.path
 import argparse
 
 

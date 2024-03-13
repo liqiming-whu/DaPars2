@@ -2,16 +2,8 @@ import numpy as np
 import os
 import sys
 import datetime
-import threading
-import scipy as sp
-import scipy.stats
-from multiprocessing import Pool
-from bisect import bisect
-
-import math
-import time
-
 import multiprocessing
+from bisect import bisect
 
 
 def time_now():#return time
@@ -29,6 +21,7 @@ def Convert_wig_into_bp_coverage(extracted_coverage,extracted_3UTR_region,strand
         bp_coverage = bp_coverage[::-1]
 
     return bp_coverage
+
 
 def parse_cfgfile(cfg_file):
     '''Parse configure file
