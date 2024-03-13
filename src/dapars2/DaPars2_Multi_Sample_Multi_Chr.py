@@ -158,11 +158,11 @@ def De_Novo_3UTR_Identification_Loading_Target_Wig_for_TCGA_Multiple_Samples_Mul
         #Write the first line
         first_line = ['Gene','fit_value','Predicted_Proximal_APA','Loci']
         for i in range(num_samples):
-            curr_long_exp = 'Sample_%s_long_exp' % str(i+1)
-            curr_short_exp = 'Sample_%s_short_exp' % str(i+1)
+            curr_long_exp = '%s_long_exp' % str(Sample_name[i])
+            curr_short_exp = '%s_short_exp' % str(Sample_name[i])
             curr_ratio = '%s_PDUI' % str(Sample_name[i])
             first_line.extend([curr_long_exp,curr_short_exp,curr_ratio])
-            first_line.append(curr_ratio)
+            # first_line.append(curr_ratio)
 
         Output_result.writelines('\t'.join(first_line) + '\n')
 
