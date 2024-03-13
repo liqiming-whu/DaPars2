@@ -34,4 +34,4 @@ def merge_apa_res_main():
     parser.add_argument("--sample-list", dest="sample_list", nargs="+", required=True, type=str, help="sample list")
     parser.add_argument("--output-file", dest="output_file", required=True, type=str, help="output file")
     args = parser.parse_args()
-    merge_apa_res_main(*vars(args).values())
+    merge_apa_res(*vars(args).values())

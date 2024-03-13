@@ -55,7 +55,7 @@ def DaPars2_main():
     De_Novo_3UTR_Identification_Loading_Target_Wig_for_TCGA_Multiple_Samples_Multiple_threads_Main3_shared_list(
         chromlist_file, wigfiles, outdir_prefix, output_final_extract_file, result_prefix, read_depth, args.Num_threads, args.Coverage_threshold)
     print("Merge results ...")
-    if args.sample_list is None:
+    if args.sample_list is not None:
         sample_list = args.sample_list
     else:
         sample_list = [os.path.basename(i).split(".")[0] for i in args.wigfiles]
