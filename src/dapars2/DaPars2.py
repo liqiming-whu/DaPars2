@@ -10,7 +10,7 @@ import os
 from dapars2.DaPars_Extract_Anno import Annotation_prepar_3UTR_extraction, Subtract_different_strand_overlap, get_chromList
 from dapars2.extract_read_depth import extract_read_depth
 from dapars2.DaPars2_Multi_Sample_Multi_Chr import De_Novo_3UTR_Identification_Loading_Target_Wig_for_TCGA_Multiple_Samples_Multiple_threads_Main3_shared_list
-from merge_apa_quant_res_by_chr import merge_apa_res
+from dapars2.merge_apa_quant_res_by_chr import merge_apa_res
 
 
 def DaPars2_main():
