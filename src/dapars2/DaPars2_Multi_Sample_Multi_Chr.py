@@ -225,7 +225,7 @@ def Each_Thread_3UTR_estimation_list_version_sample_ids(curr_thread_UTR_events_i
                         line_write.append("%.2f" % UTR_abundances[1][i])#short 3' UTR abundance
                         line_write.append("%.2f" % curr_sample_ratio)
                     else:
-                        line_write.extend(['NA']*1)
+                        line_write.extend(['NA']*3)
 
                 Output_result.writelines( '\t'.join(line_write) + '\n')
 

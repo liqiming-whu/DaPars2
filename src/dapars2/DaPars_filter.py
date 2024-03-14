@@ -51,11 +51,6 @@ def DaPars_Filtering(input_file, samples_list, treat_index, control_index, outpu
                         num_group1_pass += 1
                         group1_coverages[0] = group1_coverages[0] + curr_long  
                         group1_coverages[1] = group1_coverages[1] + curr_short
-                    else:
-                        fields[4+i*3] = 'NA'
-                        fields[5+i*3] = 'NA'
-                        fields[6+i*3] = 'NA'
-            
             
             num_group2_pass = 0
             group2_PDUIs = 0
@@ -70,19 +65,13 @@ def DaPars_Filtering(input_file, samples_list, treat_index, control_index, outpu
                         num_group2_pass += 1
                         group2_coverages[0] = group2_coverages[0] + curr_long  
                         group2_coverages[1] = group2_coverages[1] + curr_short
-                    else:
-                        fields[4+i*3] = 'NA'
-                        fields[5+i*3] = 'NA'
-                        fields[6+i*3] = 'NA'
-            
-            
-            
+
             if num_group1_pass >= Num_least_in_treat and num_group2_pass >= Num_least_in_control:
-                Final_group_diff = str(group1_PDUIs/num_group1_pass - group2_PDUIs/num_group2_pass)
+                Final_group_diff = group1_PDUIs/num_group1_pass - group2_PDUIs/num_group2_pass
                 
                 All_mean_abundance.append([group1_PDUIs/num_group1_pass, group2_PDUIs/num_group2_pass])
                 
-                fields.append(str(Final_group_diff))
+                fields.append(f"{Final_group_diff:.2f}")
                 ratio_val,P_val = sp.stats.fisher_exact([group1_coverages/num_group1_pass,group2_coverages/num_group2_pass])
                 
                 All_P_values.append(P_val)
@@ -102,7 +91,7 @@ def DaPars_Filtering(input_file, samples_list, treat_index, control_index, outpu
     # stats = importr('stats')
     # All_p_adjust = stats.p_adjust(FloatVector(All_P_values), method = 'BH')
     All_p_adjust = sp.stats.false_discovery_control(All_P_values, method="bh")
-    first_line.extend(['Treat_Mean_PDUI', 'Control_Mean_PDUI', 'P_val','adjusted.P_val','Pass_Filter'])
+    first_line.extend(['PDUI_diff', 'Treat_Mean_PDUI', 'Control_Mean_PDUI', 'P_val','adjusted.P_val','Pass_Filter'])
     output_write.writelines('\t'.join(first_line)+'\n')
     for curr_event_id in result_dict:
         mean_PDUI_group1 = 'NA'
