@@ -43,7 +43,7 @@ def DaPars_Filtering(input_file, samples_list, treat_index, control_index, outpu
             for i in treat_index:
                 curr_long = fields[4+i*3]
                 curr_short = fields[5+i*3]
-                if curr_long != 'NA':
+                if curr_long != 'NA' and curr_short != 'NA':
                     curr_long  = float(curr_long)
                     curr_short = float(curr_short)
                     if curr_long + curr_short >= Coverage_cutoff:
@@ -62,7 +62,7 @@ def DaPars_Filtering(input_file, samples_list, treat_index, control_index, outpu
             for i in control_index:
                 curr_long = fields[4+i*3]
                 curr_short = fields[5+i*3]
-                if curr_long != 'NA':
+                if curr_long != 'NA' and curr_short != 'NA':
                     curr_long  = float(curr_long)
                     curr_short = float(curr_short)
                     if curr_long + curr_short >= Coverage_cutoff:
