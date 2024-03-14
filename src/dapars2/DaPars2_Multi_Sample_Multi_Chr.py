@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 '''
 Dynamics analysis of Alternative PolyAdenylation from multiple RNA-seq data.
 '''
