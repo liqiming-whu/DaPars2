@@ -82,13 +82,13 @@ def DaPars_Filtering(input_file, samples_list, treat_index, control_index, outpu
                 
                 All_mean_abundance.append([group1_PDUIs/num_group1_pass, group2_PDUIs/num_group2_pass])
                 
-                fields[-1] = str(Final_group_diff)
+                fields.append(str(Final_group_diff))
                 ratio_val,P_val = sp.stats.fisher_exact([group1_coverages/num_group1_pass,group2_coverages/num_group2_pass])
                 
                 All_P_values.append(P_val)
                 Selected_events_id.append(fields[0])
             else:
-                fields[-1] = 'NA'
+                fields.append('NA')
             
             
             result_dict[fields[0]] = fields
@@ -102,9 +102,7 @@ def DaPars_Filtering(input_file, samples_list, treat_index, control_index, outpu
     # stats = importr('stats')
     # All_p_adjust = stats.p_adjust(FloatVector(All_P_values), method = 'BH')
     All_p_adjust = sp.stats.false_discovery_control(All_P_values, method="bh")
-    first_line.insert(-1,'Treat_Mean_PDUI')
-    first_line.insert(-1,'Control_Mean_PDUI')
-    first_line.extend(['P_val','adjusted.P_val','Pass_Filter'])
+    first_line.extend(['Treat_Mean_PDUI', 'Control_Mean_PDUI', 'P_val','adjusted.P_val','Pass_Filter'])
     output_write.writelines('\t'.join(first_line)+'\n')
     for curr_event_id in result_dict:
         mean_PDUI_group1 = 'NA'
@@ -125,8 +123,8 @@ def DaPars_Filtering(input_file, samples_list, treat_index, control_index, outpu
             if float(curr_FDR_val) <= FDR_cutoff and abs(float(curr_fields[-1]))>=PDUI_cutoff and abs(math.log((mean_PDUI_group1+1e-5)/(mean_PDUI_group2+1e-5),2))>=Fold_change_cutoff:
                 Pass_filter = 'Y'
         
-        curr_fields.insert(-1,str(mean_PDUI_group1))
-        curr_fields.insert(-1,str(mean_PDUI_group2))
+        curr_fields.append(str(mean_PDUI_group1))
+        curr_fields.append(str(mean_PDUI_group2))
         curr_fields.append(curr_P_val)
         curr_fields.append(curr_FDR_val)
         curr_fields.append(Pass_filter)
