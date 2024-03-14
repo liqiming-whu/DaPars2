@@ -23,7 +23,7 @@ def merge_apa_res(dir_prefix, file_prefix, chr_list, sample_list, output_file):
         dap_res = load_dapars2_res(chr, col_names, dir_prefix, file_prefix)
         dap_res_list.append(dap_res)
     res_df: pd.DataFrame = pd.concat(dap_res_list)
-    res_df.to_csv(output_file, sep="\t", index=False)
+    res_df.to_csv(output_file, sep="\t", na_rep="NA", index=False)
     
 
 
