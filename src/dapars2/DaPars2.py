@@ -56,6 +56,10 @@ def DaPars2_main():
         Annotation_prepar_3UTR_extraction(gene_bed_file, gene_symbol_annotation_file,output_extract_file)
         Subtract_different_strand_overlap(output_extract_file,output_final_extract_file)
         get_chromList(output_final_extract_file, chromlist_file)
+        try:
+            os.remove(output_extract_file)
+        except OSError:
+            pass
     wigfiles = args.wigfiles
     flagstat = args.flagstat
     read_depth = os.path.join(outdir, "readDepth.txt")
